@@ -98,8 +98,8 @@
     <div class="productBar">
         <?php
             $host = "localhost";
-            $username = "admin";
-            $password = "PUPper5751";
+            $username = "user";
+            $password = "";
             $database = "jewelry";
         
             $connect = mysqli_connect($host, $username, $password, $database);
