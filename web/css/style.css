@@ -1,86 +1,95 @@
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     line-height: 1.5;
     padding: 0;
-    margin: 0;        
+    margin: 0;
 }
 
-.container{
+.container {
     width: 80%;
     margin: auto;
     overflow: hidden;
 }
 
-ul{
+ul {
     margin: 0;
     padding: 0;
 }
 
+
 /* unvisited link */
+
 a:link {
     text-decoration: none;
-    color:black;
+    color: black;
 }
+
 
 /* visited link */
+
 a:visited {
     text-decoration: none;
-    color:black;
+    color: black;
 }
 
-header.main-header{
-    background:#35424a;
-    color:#ffffff;
+.productTitle a:link,
+.productTitle a:visited {
+    color: white;
+}
+
+header.main-header {
+    background: #35424a;
+    color: #ffffff;
     border-bottom: #e8491d 3px solid;
 }
 
-.productTitle{
+.productTitle {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 30px;
     text-align: center;
     padding-top: 1%;
     padding-bottom: 1%;
     line-height: 1.5;
-    color:white;
+    color: white;
     text-decoration: none;
+    background: #333;
 }
 
-#product{
+#product {
     width: 100%;
-    height: auto;    
+    height: auto;
 }
 
-.productBar{    
+.productBar {
     margin: auto;
     padding-left: 10%;
     padding-top: 1%;
-    overflow: hidden; 
-    border-bottom: black 1px solid;       
-    border-top: black 1px solid;       
+    padding-bottom: 1%;
+    overflow: hidden;
 }
 
-.productCard{
-    float: left;        
-    max-width: 200px;  
+.productCard {
+    float: left;
+    max-width: 200px;
     padding-left: 2%;
     text-decoration: none;
 }
 
-.productDesc{
-    font-size: 16px;            
-    color: black;          
-    text-overflow:ellipsis;
+.productDesc {
+    font-size: 16px;
+    color: black;
+    text-overflow: ellipsis;
     overflow: hidden;
-    white-space:nowrap;
-    text-align: center; 
+    white-space: nowrap;
+    text-align: center;
     vertical-align: middle;
     padding-top: 1%;
 }
 
 .navbar {
-    width: 100%;
-    padding-left: 10%; 
+    /*width: 100%; */
+    padding-left: 10%;
     margin: auto;
     overflow: hidden;
     background-color: #333;
@@ -102,7 +111,7 @@ header.main-header{
 }
 
 .dropdown .dropbtn {
-    font-size: 16px;    
+    font-size: 16px;
     border: none;
     outline: none;
     color: white;
@@ -112,7 +121,8 @@ header.main-header{
     margin: 0;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover,
+.dropdown:hover .dropbtn {
     background-color: red;
 }
 
@@ -121,7 +131,7 @@ header.main-header{
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -142,8 +152,8 @@ header.main-header{
     display: block;
 }
 
-.main-nav{
-    color:#ffffff;
+.main-nav {
+    color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 16px;
@@ -152,38 +162,43 @@ header.main-header{
     float: right;
 }
 
-.main-nav li{
+.main-nav li {
     display: inline-block;
 }
 
-.main-nav li a{
+.main-nav li a {
     color: white;
     text-decoration: none;
     padding: 5px 20px;
     font-size: 15px;
 }
 
-.main-nav li a:hover{
+.main-nav li a:hover {
     border: 1px solid white;
 }
 
-.main-nav li.activeNav a{
+.main-nav li.activeNav a {
     border: 1px solid white;
 }
 
-header #logo{
+header #logo {
     float: left;
 }
 
+
 /* Slideshow container */
+
 .slideshow-container {
-    max-width: 1100px;
+    /* max-width: 1100px;*/
     position: relative;
-    margin: auto;    
-  }
+    margin: auto;
+}
+
 
 /* Next & previous buttons */
-.prev, .next {
+
+.prev,
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -197,18 +212,31 @@ header #logo{
     border-radius: 0 3px 3px 0;
 }
 
+
 /* Position the "next button" to the right */
+
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
 
+
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
+.navBtn {
+    position: absolute;
+    bottom: 1%;
+    left: 48%;
+}
+
+
 /* The dots/bullets/indicators */
+
 .dot {
     cursor: pointer;
     height: 15px;
@@ -219,25 +247,41 @@ header #logo{
     display: inline-block;
     transition: background-color 0.6s ease;
 }
-  
-.active, .dot:hover {
+
+.active,
+.dot:hover {
     background-color: #717171;
 }
 
+
 /* Fading animation */
+
 .fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
     animation-name: fade;
     animation-duration: 1.5s;
 }
-  
-@-webkit-keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
+
+.footer {
+    background: #35424a;
+    height: 100px;
 }
-  
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
 @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
 }

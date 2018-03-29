@@ -84,7 +84,7 @@
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
             <!-- The dots/circles -->
-            <div style="text-align:center">
+            <div class="navBtn">
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
                 <span class="dot" onclick="currentSlide(3)"></span>
@@ -139,19 +139,22 @@
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))
             {           
-                ?>
-                <div class="productCard">
-                    <img id="product" src="img/bracelet-<?php echo $row['id'] ?>.jpg">            
-                    <div class="productDesc">
-                        <a href="#"><?php echo $row['name'] ?></a>
-                    </div>
-                    <div class="productDesc">
-                        <a href="#"><?php echo number_format($row['price'], 0, ',', '.') ?> vnđ</a>
-                    </div>
-                </div>                
-                <?php
-            }
         ?>
+        <div class="productCard">
+            <img id="product" src="img/bracelet-<?php echo $row['id'] ?>.jpg">            
+            <div class="productDesc">
+                <a href="#"><?php echo $row['name'] ?></a>
+            </div>
+            <div class="productDesc">
+                <a href="#"><?php echo number_format($row['price'], 0, ',', '.') ?> vnđ</a>
+            </div>
+        </div>                
+            <?php
+            }
+            ?>
+    </div>
+    <div class="footer">
+        
     </div>
     <script src="js/myjs1.js"></script>
 </body>

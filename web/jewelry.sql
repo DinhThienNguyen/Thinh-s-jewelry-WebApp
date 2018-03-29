@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 26, 2018 at 03:26 AM
+-- Generation Time: Mar 29, 2018 at 12:42 PM
 -- Server version: 5.7.21-log
--- PHP Version: 7.2.3
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,57 @@ SET time_zone = "+00:00";
 --
 -- Database: `jewelry`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bracelet`
+--
+
+CREATE TABLE `bracelet` (
+  `id` int(5) NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `price` double NOT NULL,
+  `brand_id` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bracelet`
+--
+
+INSERT INTO `bracelet` (`id`, `name`, `price`, `brand_id`) VALUES
+(1, 'Đôi cánh tình yêu', 2990000, 1),
+(2, 'Bộ vòng động vật vui vẻ', 4109000, 3),
+(3, 'Vòng bạc mềm cổ điển móc tròn', 890000, 4),
+(4, 'Vòng đeo tay da tông đen ', 620000, 5),
+(5, 'Vòng đeo tay 2 lớp tông đen', 690000, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `braceletbrand`
+--
+
+CREATE TABLE `braceletbrand` (
+  `id` int(5) NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `braceletbrand`
+--
+
+INSERT INTO `braceletbrand` (`id`, `name`) VALUES
+(1, 'TIFFANY'),
+(2, 'DIOR'),
+(3, 'CARTIER'),
+(4, 'BULGARI'),
+(5, 'HERMÈS'),
+(6, 'DE BEERS'),
+(7, 'CHAUMET'),
+(8, 'CHOPARD'),
+(9, 'CHANEL'),
+(10, 'PANDORA');
 
 -- --------------------------------------------------------
 
@@ -78,6 +129,18 @@ INSERT INTO `watchbrand` (`id`, `name`) VALUES
 --
 
 --
+-- Indexes for table `bracelet`
+--
+ALTER TABLE `bracelet`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `braceletbrand`
+--
+ALTER TABLE `braceletbrand`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `watch`
 --
 ALTER TABLE `watch`
@@ -92,6 +155,18 @@ ALTER TABLE `watchbrand`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bracelet`
+--
+ALTER TABLE `bracelet`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `braceletbrand`
+--
+ALTER TABLE `braceletbrand`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `watch`
