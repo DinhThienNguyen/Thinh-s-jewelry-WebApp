@@ -93,7 +93,7 @@
 
     <!-- Watch product bar -->  
     <div class="productTitle">
-        <a href="#">Sản phẩm đồng hồ</a>
+        <a href="watch.php">Sản phẩm đồng hồ</a>
     </div>      
     <div class="productBar">
         <?php
@@ -122,7 +122,7 @@
             }
         ?>
     </div>
-    
+
     <!--Bracelet product bar -->
     <div class="productTitle">
         <a href="#">Sản phẩm vòng đeo tay</a>
@@ -153,9 +153,6 @@
             <?php
             }
             ?>
-    </div>
-    <div class="footer">
-        
     </div>
     <script src="js/myjs1.js"></script>
 </body>
