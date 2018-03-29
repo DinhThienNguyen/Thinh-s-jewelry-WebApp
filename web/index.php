@@ -121,7 +121,37 @@
                 <?php
             }
         ?>
-    </div>  
+    </div>
+    <div class="productTitle">
+        <a href="#">Sản phẩm vòng đeo tay</a>
+    </div>
+    <div class="productBar">
+        <?php
+            $host = "localhost";
+            $username = "user";
+            $password = "";
+            $database = "jewelry";
+        
+            $connect = mysqli_connect($host, $username, $password, $database);
+            $connect->set_charset("utf8");
+            $sql = "SELECT * FROM bracelet";
+            $result = mysqli_query($connect, $sql);
+            while($row = mysqli_fetch_array($result))
+            {           
+                ?>
+                <div class="productCard">
+                    <img id="product" src="img/bracelet-<?php echo $row['id'] ?>.jpg">            
+                    <div class="productDesc">
+                        <a href="#"><?php echo $row['name'] ?></a>
+                    </div>
+                    <div class="productDesc">
+                        <a href="#"><?php echo number_format($row['price'], 0, ',', '.') ?> vnđ</a>
+                    </div>
+                </div>                
+                <?php
+            }
+        ?>
+    </div>
     <script src="js/myjs1.js"></script>
 </body>
 </html>
