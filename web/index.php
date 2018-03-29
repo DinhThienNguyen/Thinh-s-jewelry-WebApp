@@ -1,6 +1,6 @@
 <html>
 <head>
-    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device width, initial-scale=1">
     <title>Thịnh's jelwery | Welcome</title>
@@ -103,6 +103,7 @@
             $database = "jewelry";
         
             $connect = mysqli_connect($host, $username, $password, $database);
+            $connect->set_charset("utf8");
             $sql = "SELECT * FROM watch";
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))
