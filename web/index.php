@@ -11,22 +11,22 @@
     <header class="main-header">
         <div class="container">
             <div id="logo">
-                <a href="index.html">
+                <a href="#">
                     <img src="img/logo.png" alt="Thinh's Jelwery logo" class="logo">
                 </a>
             </div>
             <ul class="main-nav">
                 <li class="activeNav">
-                    <a href="index.html">Home</a>
+                    <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="index.html">About</a>
+                    <a href="#">About</a>
                 </li>
                 <li>
-                    <a href="index.html">Contact</a>
+                    <a href="#">Contact</a>
                 </li>
                 <li>
-                    <a href="index.html">Sign in</a>
+                    <a href="#">Sign in</a>
                 </li>
             </ul>
         </div>
@@ -122,6 +122,7 @@
             }
         ?>
     </div>
+    <!--Bracelet product bar -->
     <div class="productTitle">
         <a href="#">Sản phẩm vòng đeo tay</a>
     </div>
