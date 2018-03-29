@@ -122,6 +122,7 @@
             }
         ?>
     </div>
+    
     <!--Bracelet product bar -->
     <div class="productTitle">
         <a href="#">Sản phẩm vòng đeo tay</a>
