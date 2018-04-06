@@ -28,9 +28,18 @@ select {
     margin: 0 10;
 }
 
+.brand {
+    position: relative;
+    float: left;
+    height: 500;
+    width: 200px;
+    background-color: goldenrod;
+}
+
 .product-container {
+    float: right;
     margin: auto;
-    /*padding-left: 10%;*/
+    padding-left: 10%;
     padding-top: 1%;
     padding-bottom: 1%;
     overflow: hidden;

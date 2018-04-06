@@ -6,6 +6,8 @@
     <title>Thịnh's jelwery | Đồng hồ</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/watch-style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js" type="text/javascript"></script>
+	<script src="js/ajax.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -70,11 +72,29 @@
             <a href="watch.php">Sản phẩm đồng hồ</a>
             <div style="float:right">
             <span>Sắp xếp theo: </span>
-            <select name ="sort">
+            <select class="filter">
                 <option value="noibat">Nổi bật</option>
                 <option value="high">Giá từ cao đến thấp</option>
                 <option value="low">Giá từ thấp đến cao</option>
             </select>           
+            </div>
+        </div>
+        <div class="brand">
+            <span>Thương hiệu</span>
+            <div class = "checkbox">
+                <lable class ="checkbox-wrapper">
+                    <span class="ant-checkbox">
+                        <input type ="checkbox" class="ant-checkbox-input" value=""/>
+                    </span>
+                    <span>Casio</span>
+                </lable>
+                <lable class ="checkbox-wrapper">
+                    <span class="ant-checkbox">
+                        <input type ="checkbox" class="ant-checkbox-input" value=""/>
+                    </span>
+                    <span>ABC</span>
+                </lable>
+
             </div>
         </div>
         <div class="product-container">
@@ -105,7 +125,5 @@
         ?>
         </div>
     </div>
-
-
 </body>
 </html>
