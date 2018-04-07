@@ -74,7 +74,7 @@
             <div class = "checkbox">
                 <?php 
                     require "connect.php";
-                    $sql = "SELECT * FROM watchbrand";
+                    $sql = "SELECT * FROM braceletbrand";
                     $result = mysqli_query($connect, $sql);
                     while($row = mysqli_fetch_array($result)) {           
                 ?>
@@ -90,10 +90,10 @@
             </div>
         </div>
         <div class ="block">
-            <a href="watch.php" style='padding-left: 10px'>Sản phẩm đồng hồ</a>
+            <a href="watch.php" style='padding-left: 10px'>Sản phẩm vòng đeo tay</a>
             <div style="float:right">
             <span>Sắp xếp theo: </span>
-            <select class="filter" data-type="watch">
+            <select class="filter">
                 <option value="noibat">Nổi bật</option>
                 <option value="high">Giá từ cao đến thấp</option>
                 <option value="low">Giá từ thấp đến cao</option>
@@ -103,13 +103,13 @@
         <div class="product-container">
         <?php
             require "connect.php";
-            $sql = "SELECT * FROM watch";
+            $sql = "SELECT * FROM bracelet";
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))
             {           
                 ?>
                 <div class="productCard">
-                    <img id="product" src="img/<?php echo $row['name'] ?>.jpg">            
+                    <img id="product" src="img/bracelet-<?php echo $row['id'] ?>.jpg">            
                     <div class="productDesc">
                         <a href="#"><?php echo $row['name'] ?></a>
                     </div>

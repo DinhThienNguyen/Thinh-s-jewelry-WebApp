@@ -119,7 +119,7 @@
 
     <!--Bracelet product bar -->
     <div class="productTitle">
-        <a href="#">Sản phẩm vòng đeo tay</a>
+        <a href="bracelet.php">Sản phẩm vòng đeo tay</a>
     </div>
     <div class="productBar">
         <?php
@@ -130,7 +130,7 @@
             {           
         ?>
         <div class="productCard">
-            <img id="product" src="img/bracelet-<?php echo $row['id'] ?>.jpg">            
+            <img id="product" src="img/<?php echo $row['name'] ?>.jpg">            
             <div class="productDesc">
                 <a href="#"><?php echo $row['name'] ?></a>
             </div>

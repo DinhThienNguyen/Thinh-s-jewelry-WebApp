@@ -16,7 +16,7 @@ body {
     background: rgb(240, 240, 240);
     height: 25px;
     position: relative;
-    padding: 5px 10px;
+    padding: 5px 0px;
     width: 80%;
     float: right;
 }
@@ -43,11 +43,29 @@ select {
 }
 
 .product-container {
+    position: relative;
     float: left;
     margin: auto;
     width: 80%;
-    /*padding-left: 10%;*/
     padding-top: 1%;
     padding-bottom: 1%;
     overflow: hidden;
+    /*min-height: 800px;*/
+}
+
+.pagination {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+}
+
+.pagination_link {
+    display: inline-block;
+    min-width: 20px;
+    margin: 5px 0 5px 5px;
+    padding: 0 5px;
+    cursor: pointer;
+    border: 1px solid gray;
+    text-align: center;
 }
