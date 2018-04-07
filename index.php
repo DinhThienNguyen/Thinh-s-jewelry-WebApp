@@ -26,7 +26,7 @@
                     <a href="#">Contact</a>
                 </li>
                 <li>
-                    <a href="#">Sign in</a>
+                    <a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign in</a>
                 </li>
             </ul>
         </div>
@@ -142,6 +142,38 @@
             }
             ?>
     </div>
+    <div id="id01" class="modal">
+  
+    <form method="post" class="modal-content animate" action="server.php">
+
+    <div class="containerLogin">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" id="username" name="username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" id="password" name="password" required>
+        
+      <button class = "loginButton" type="submit" name="login_user">Login</button>    
+    </div>
+
+    <div class="containerLogin" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
     <script src="js/myjs1.js"></script>
 </body>
 </html>
