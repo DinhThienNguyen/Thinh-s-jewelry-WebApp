@@ -82,30 +82,26 @@
         <div class="brand">
             <span>Thương hiệu</span>
             <div class = "checkbox">
-                <lable class ="checkbox-wrapper">
-                    <span class="ant-checkbox">
-                        <input type ="checkbox" class="ant-checkbox-input" value=""/>
-                    </span>
-                    <span>Casio</span>
-                </lable>
-                <lable class ="checkbox-wrapper">
-                    <span class="ant-checkbox">
-                        <input type ="checkbox" class="ant-checkbox-input" value=""/>
-                    </span>
-                    <span>ABC</span>
-                </lable>
-
+                <?php 
+                    require "connect.php";
+                    $sql = "SELECT * FROM watchbrand";
+                    $result = mysqli_query($connect, $sql);
+                    while($row = mysqli_fetch_array($result)) {           
+                ?>
+                    <lable class ="checkbox-wrapper">
+                        <span class="ant-checkbox">
+                            <input type ="checkbox" class="ant-checkbox-input" value="<?php echo $row['id'] ?>"/>
+                        </span>
+                        <span><?php echo $row['name'] ?></span>
+                    </lable>
+                <?php
+                    }
+                ?>
             </div>
         </div>
         <div class="product-container">
         <?php
-            $host = "localhost";
-            $username = "user";
-            $password = "";
-            $database = "jewelry";
-        
-            $connect = mysqli_connect($host, $username, $password, $database);
-            $connect->set_charset("utf8");
+            require "connect.php";
             $sql = "SELECT * FROM watch";
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))

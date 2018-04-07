@@ -97,13 +97,7 @@
     </div>      
     <div class="productBar">
         <?php
-            $host = "localhost";
-            $username = "user";
-            $password = "";
-            $database = "jewelry";
-        
-            $connect = mysqli_connect($host, $username, $password, $database);
-            $connect->set_charset("utf8");
+            require "connect.php";
             $sql = "SELECT * FROM watch";
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))
@@ -129,13 +123,7 @@
     </div>
     <div class="productBar">
         <?php
-            $host = "localhost";
-            $username = "user";
-            $password = "";
-            $database = "jewelry";
-        
-            $connect = mysqli_connect($host, $username, $password, $database);
-            $connect->set_charset("utf8");
+            require "connect.php";
             $sql = "SELECT * FROM bracelet";
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))

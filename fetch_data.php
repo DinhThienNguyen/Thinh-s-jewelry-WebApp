@@ -1,26 +1,26 @@
 <?php
-            $host = "localhost";
-            $username = "user";
-            $password = "";
-            $database = "jewelry";
-        
-            $connect = mysqli_connect($host, $username, $password, $database);
-            $connect->set_charset("utf8");
-
+            require "connect.php";
             //Load nhãn hiệu 
+            $arr = $_POST['brand_id'];
+            $sql ="SELECT * FROM watch WHERE TRUE";
             
+            foreach ($arr as $key =>$keyval) {
+                if($key == 0) {
+                    $sql .= " AND brand_id ='$keyval'";
+                } 
+                else $sql .= " OR brand_id ='$keyval'";
+            }
 
+            
             //Load dữ liệu 
             $key = $_POST['id'];
             if($key == 'high') {
-              $sql = "SELECT * FROM watch ORDER BY price DESC";
+              $sql .= " ORDER BY price DESC";
             }
             else if($key == 'low') {
-              $sql = "SELECT * FROM watch ORDER BY price ASC";
+              $sql .= " ORDER BY price ASC";
             }
-            else 
-              $sql = "SELECT * FROM watch";
-            
+
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))
             {           

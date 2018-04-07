@@ -17,6 +17,8 @@ body {
     height: 25px;
     position: relative;
     padding: 5px 10px;
+    width: 80%;
+    float: right;
 }
 
 .block a {
@@ -31,15 +33,20 @@ select {
 .brand {
     position: relative;
     float: left;
-    height: 500;
-    width: 200px;
-    background-color: goldenrod;
+    width: 20%;
+}
+
+.checkbox-wrapper {
+    padding-left: 5%;
+    display: block;
+    color: #757575;
 }
 
 .product-container {
-    float: right;
+    float: left;
     margin: auto;
-    padding-left: 10%;
+    width: 80%;
+    /*padding-left: 10%;*/
     padding-top: 1%;
     padding-bottom: 1%;
     overflow: hidden;
