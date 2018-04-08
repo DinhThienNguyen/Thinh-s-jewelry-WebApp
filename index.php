@@ -98,10 +98,13 @@
     <div class="productBar">
         <?php
             require "connect.php";
+            $count = 0;
             $sql = "SELECT * FROM watch";
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))
             {           
+                if($count === 5)
+                    break;
                 ?>
                 <div class="productCard">
                     <img id="product" src="img/<?php echo $row['name'] ?>.jpg">            
@@ -113,6 +116,7 @@
                     </div>
                 </div>                
                 <?php
+                $count++;
             }
         ?>
     </div>
@@ -124,6 +128,7 @@
     <div class="productBar">
         <?php
             require "connect.php";
+            $count = 0;
             $sql = "SELECT * FROM bracelet";
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))
@@ -139,6 +144,7 @@
             </div>
         </div>                
             <?php
+            $count++;
             }
             ?>
     </div>
@@ -154,11 +160,6 @@
       <input type="password" placeholder="Enter Password" id="password" name="password" required>
         
       <button class = "loginButton" type="submit" name="login_user">Login</button>    
-    </div>
-
-    <div class="containerLogin" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>
