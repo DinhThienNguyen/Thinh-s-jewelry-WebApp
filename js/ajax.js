@@ -10,7 +10,7 @@ $(document).ready(function() {
         tabledata = "watch";
     }
 
-    load_data();
+    /*load_data();
 
     function load_data(page) {
         $.post("pagination.php", { database: tabledata, page: page }, function(data) {
@@ -21,7 +21,7 @@ $(document).ready(function() {
         var page = $(this).attr("id");
         load_data(page);
     });
-
+*/
     $(".filter").change(function() {
         var id = $(".filter").val();
         var arr_id = new Array();

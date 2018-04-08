@@ -109,7 +109,7 @@
             {           
                 ?>
                 <div class="productCard">
-                    <img id="product" src="img/bracelet-<?php echo $row['id'] ?>.jpg">            
+                    <img id="product" src="img/<?php echo $row['name'] ?>.jpg">            
                     <div class="productDesc">
                         <a href="#"><?php echo $row['name'] ?></a>
                     </div>
