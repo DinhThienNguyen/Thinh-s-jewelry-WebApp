@@ -38,8 +38,10 @@
 
     //phân trang
     $start_from = ($page - 1)*$record_per_page;  
-    $sql .= " LIMIT $start_from, $record_per_page";  */
-            
+
+    $sql .= " LIMIT $start_from, $record_per_page";  
+           */ 
+
     $result = mysqli_query($connect, $sql);
     while($row = mysqli_fetch_array($result))
     {           
@@ -56,11 +58,14 @@
 <?php
     }
 ?>
-    <!--<div style="clear:float">
+<<<<<<< HEAD
+=======
+ <!--   <div style="clear:float">
+>>>>>>> 31408b5468abe6d04ccf35bc8d91696a306c9072
     </div>
     <div class="pagination">
 <?php    
-    for($i=1; $i<=$total_pages; $i++)  
+    /*for($i=1; $i<=$total_pages; $i++)  
     {  
 ?>
         <span class="pagination_link" id="<?php echo $i; ?>"><?php echo $i; ?></span>

@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class ="block">
-            <a href="watch.php" style='padding-left: 10px'>Sản phẩm vòng đeo tay</a>
+            <a href="bracelet.php" style='padding-left: 10px'>Sản phẩm vòng đeo tay</a>
             <div style="float:right">
             <span>Sắp xếp theo: </span>
             <select class="filter">
@@ -86,7 +86,7 @@
             {           
                 ?>
                 <div class="productCard">
-                    <img id="product" src="img/bracelet-<?php echo $row['id'] ?>.jpg">            
+                    <img id="product" src="img/<?php echo $row['name'] ?>.jpg">            
                     <div class="productDesc">
                         <a href="#"><?php echo $row['name'] ?></a>
                     </div>
