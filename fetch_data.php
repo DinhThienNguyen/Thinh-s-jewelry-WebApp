@@ -22,7 +22,7 @@
         $sql .= " ORDER BY price ASC";
     }
 
-    $record_per_page = 2;  
+    /*$record_per_page = 2;  
     $page = '';  
     if(isset($_POST["page"]))  {  
         $page = $_POST["page"];  
@@ -38,7 +38,7 @@
 
     //phân trang
     $start_from = ($page - 1)*$record_per_page;  
-    $sql .= " LIMIT $start_from, $record_per_page";  
+    $sql .= " LIMIT $start_from, $record_per_page";  */
             
     $result = mysqli_query($connect, $sql);
     while($row = mysqli_fetch_array($result))
@@ -56,7 +56,7 @@
 <?php
     }
 ?>
-    <div style="clear:float">
+    <!--<div style="clear:float">
     </div>
     <div class="pagination">
 <?php    
@@ -67,5 +67,5 @@
 <?php
     }  
 ?>
-    </div>
+    </div> -->
 

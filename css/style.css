@@ -26,6 +26,21 @@ a:link {
     color: black;
 }
 
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
 
 /* visited link */
 
@@ -60,13 +75,16 @@ header.main-header {
 #product {
     display: block;
     margin: auto;
-    width: 95%;
+    padding-left: 1%;
     height: auto;
+    background-color: white;
+    border: none;
+    width: 95%;
 }
 
 .productBar {
     margin: auto;
-    padding-left: 10%;
+    padding-left: 7%;
     padding-top: 1%;
     padding-bottom: 1%;
     overflow: hidden;
@@ -74,8 +92,8 @@ header.main-header {
 
 .productCard {
     float: left;
-    max-width: 200px;
     padding-left: 1%;
+    max-width: 200px;
     text-decoration: none;
 }
 

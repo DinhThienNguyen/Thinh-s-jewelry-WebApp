@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
 <head>
     <meta http-equiv="Cache-control" content="no-cache">    
@@ -11,20 +15,11 @@
     <header class="main-header">
         <div class="container">
             <div id="logo">
-                <a href="#">
+                <a href="index.php">
                     <img src="img/logo.png" alt="Thinh's Jelwery logo" class="logo">
                 </a>
             </div>
-            <ul class="main-nav">
-                <li class="activeNav">
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+            <ul class="main-nav">                
                 <li>
                     <a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign in</a>
                 </li>
@@ -33,34 +28,20 @@
     </header>
     <div class="navbar">
         <div class="dropdown">
-            <button class="dropbtn">Watch
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
+            <a href="watch.php" class="button">Đồng hồ</a> 
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Necklace
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
+            <a href="bracelet.php" class="button">Vòng tay</a>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Bracelet
+            <button class="dropbtn">Dây chuyền
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Bông tai
+                <i class="fa fa-caret-down"></i>
+            </button>
         </div>
     </div>
     <!-- Slideshow container -->
@@ -103,18 +84,22 @@
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))
             {           
-                if($count === 5)
+                if($count === 6)
                     break;
-                ?>
-                <div class="productCard">
-                    <img id="product" src="img/<?php echo $row['name'] ?>.jpg">            
+                ?>                
+                <div class="productCard">                 
+                    <form method="post" action="productpage.php" enctype="multipart/form-data">               
+                        <input type="hidden" name="productid" value="<?php echo $row['id'] ?>" >
+                        <input type="hidden" name="table" value="watch">
+                        <button id="product" type="submit" name="display"><img src="img/<?php echo $row['name'] ?>.jpg" width = "200px"></button>                          
+                    </form>
                     <div class="productDesc">
-                        <a href="#"><?php echo $row['name'] ?></a>
+                        <a><?php echo $row['name'] ?></a>
                     </div>
                     <div class="productDesc">
-                        <a href="#"><?php echo number_format($row['price'], 0, ',', '.') ?> vnđ</a>
-                    </div>
-                </div>                
+                        <a><?php echo number_format($row['price'], 0, ',', '.') ?> vnđ</a>
+                    </div>                
+                </div>                                
                 <?php
                 $count++;
             }
@@ -133,21 +118,96 @@
             $result = mysqli_query($connect, $sql);
             while($row = mysqli_fetch_array($result))
             {           
+                if($count === 6)
+                    break;
         ?>
         <div class="productCard">
-            <img id="product" src="img/<?php echo $row['name'] ?>.jpg">            
+        <form method="post" action="productpage.php" id = "productPage">
+            <input type="hidden" name="productid" value="<?php echo $row['id'] ?>">
+            <input type="hidden" name="table" value="bracelet">
+            <button id="product" type="submit" name="display"><img src="img/<?php echo $row['name'] ?>.jpg" width = "200px"></button>                
             <div class="productDesc">
-                <a href="#"><?php echo $row['name'] ?></a>
+                <a><?php echo $row['name'] ?></a>
             </div>
             <div class="productDesc">
-                <a href="#"><?php echo number_format($row['price'], 0, ',', '.') ?> vnđ</a>
+                <a><?php echo number_format($row['price'], 0, ',', '.') ?> vnđ</a>
             </div>
+        </form>
         </div>                
             <?php
             $count++;
             }
             ?>
     </div>
+
+    <!--Necklace product bar -->
+    <div class="productTitle">
+        <a href="necklace.php">Sản phẩm dây chuyền</a>
+    </div>
+    <div class="productBar">
+        <?php
+            require "connect.php";
+            $count = 0;
+            $sql = "SELECT * FROM necklace";
+            $result = mysqli_query($connect, $sql);
+            while($row = mysqli_fetch_array($result))
+            {           
+                if($count === 6)
+                    break;
+        ?>
+        <div class="productCard">
+        <form method="post" action="productpage.php" id = "productPage">
+            <input type="hidden" name="productid" value="<?php echo $row['id'] ?>">
+            <input type="hidden" name="table" value="necklace">
+            <button id="product" type="submit" name="display"><img src="img/<?php echo $row['name'] ?>.jpg" width = "200px"></button>                
+            <div class="productDesc">
+                <a><?php echo $row['name'] ?></a>
+            </div>
+            <div class="productDesc">
+                <a><?php echo number_format($row['price'], 0, ',', '.') ?> vnđ</a>
+            </div>
+        </form>
+        </div>                
+            <?php
+            $count++;
+            }
+            ?>
+    </div>
+    
+<!--Earring product bar -->
+    <div class="productTitle">
+        <a href="earring.php">Sản phẩm bông tai</a>
+    </div>
+    <div class="productBar">
+        <?php
+            require "connect.php";
+            $count = 0;
+            $sql = "SELECT * FROM earring";
+            $result = mysqli_query($connect, $sql);
+            while($row = mysqli_fetch_array($result))
+            {           
+                if($count === 6)
+                    break;
+        ?>
+        <div class="productCard">
+        <form method="post" action="productpage.php" id = "productPage">
+            <input type="hidden" name="productid" value="<?php echo $row['id'] ?>">
+            <input type="hidden" name="table" value="earring">
+            <button id="product" type="submit" name="display"><img src="img/<?php echo $row['name'] ?>.jpg" width = "200px"></button>                
+            <div class="productDesc">
+                <a><?php echo $row['name'] ?></a>
+            </div>
+            <div class="productDesc">
+                <a><?php echo number_format($row['price'], 0, ',', '.') ?> vnđ</a>
+            </div>
+        </form>
+        </div>                
+            <?php
+            $count++;
+            }
+            ?>
+    </div>
+
     <div id="id01" class="modal">
   
     <form method="post" class="modal-content animate" action="server.php">

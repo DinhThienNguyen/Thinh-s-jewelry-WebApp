@@ -19,17 +19,8 @@
                 </a>
             </div>
             <ul class="main-nav">
-                <li class="activeNav">
-                    <a href="#">Home</a>
-                </li>
                 <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-                <li>
-                    <a href="#">Sign in</a>
+                <a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign in</a>
                 </li>
             </ul>
         </div>
@@ -37,34 +28,20 @@
 
     <div class="navbar">
         <div class="dropdown">
-            <button class="dropbtn">Watch
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
+            <a href="watch.php" class="button">Đồng hồ</a> 
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Necklace
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
+            <a href="bracelet.php" class="button">Vòng tay</a>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Bracelet
+            <button class="dropbtn">Vòng tay
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Bông tai
+                <i class="fa fa-caret-down"></i>
+            </button>
         </div>
     </div>
 
@@ -122,5 +99,32 @@
         ?>
         </div>
     </div>
+
+    <div id="id01" class="modal">
+  
+  <form method="post" class="modal-content animate" action="server.php">
+
+  <div class="containerLogin">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" id="username" name="username" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" id="password" name="password" required>
+      
+    <button class = "loginButton" type="submit" name="login_user">Login</button>    
+  </div>
+</form>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 </body>
 </html>

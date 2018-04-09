@@ -1,7 +1,7 @@
 <?php
 // Start the session
 session_start();
-if (!isset($_SESSION['username']) || time() - $_SESSION['login_time'] > 120) {
+if ($_SESSION['username'] !== 'admin' || time() - $_SESSION['login_time'] > 120) {
     $_SESSION['msg'] = "You must log in first";
     // last request was more than 30 minutes ago
     session_unset();     // unset $_SESSION variable for the run-time 
@@ -215,7 +215,8 @@ img{
 <div class="tab">
   <button class="tablinks" onclick="openProduct(event, 'watch')">Đồng hồ</button>
   <button class="tablinks" onclick="openProduct(event, 'bracelet')">Vòng tay</button>
-  <button class="tablinks" onclick="openProduct(event, 'ring')">Nhẫn</button>
+  <button class="tablinks" onclick="openProduct(event, 'earring')">Bông tai</button>
+  <button class="tablinks" onclick="openProduct(event, 'necklace')">Dây chuyền</button>
 </div>
 
 <div id="watch" class="tabcontent">
@@ -384,8 +385,170 @@ img{
 </table>
 </div>
 
-<div id="ring" class="tabcontent">
-  
+<div id="earring" class="tabcontent">
+<table>
+  <col width="5%">
+  <col width="55%">
+  <col width="15%">
+  <col width="10%">
+  <col width="5%">
+  <col width="5%">
+
+  <tr>
+    <th>Mã</th>
+    <th>Tên bông tay</th>
+    <th>Giá</th>
+    <th>Chất liệu</th>    
+    <th>Hình ảnh</th>    
+    <th>Thao tác</th> 
+  </tr>
+
+  <tr>
+  <form method="post" action="server.php" enctype="multipart/form-data">
+    <th>Mã</th>
+    <th><input type="text" placeholder="Nhập tên sản phẩm" id="productname" name="productname" required></th>
+    <th><input type="text" placeholder="Nhập giá sản phẩm" id="productprice" name="productprice" required></th>
+    <th>
+        <select name="materialid">
+        <?php
+            require "connect.php";
+            $sql = "SELECT * FROM earringmaterial";
+            $result = mysqli_query($connect, $sql);
+            while($row = mysqli_fetch_array($result))
+            {           
+                ?>                   
+                    <option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
+                    <?php
+            }
+        ?>
+        </select>
+    </th>
+    <th><input type="file" name="image" required></th>
+    <th><input type="submit" name="AddEarringProduct" value="Thêm sản phẩm"></th>
+  </form>
+  </tr>
+
+  <?php
+            require "connect.php";
+            $sql = "SELECT earring.id, earring.name, earring.price, earringmaterial.name materialname FROM earring INNER JOIN earringmaterial ON earring.material_id = earringmaterial.id";
+            $sql1 = "SELECT id, `name` FROM earringmaterial";
+            $result = mysqli_query($connect, $sql);            
+            while($row = mysqli_fetch_array($result))
+            {           
+                ?>
+                    <tr><form action = "server.php" method = "post" enctype="multipart/form-data">
+                      <th><input type="text" name="productid" value=<?php echo $row['id']?> readonly></th>
+                      <th><input type="text" name="productname" value='<?php echo $row['name']?>'></th>
+                      <th><input type="text" name="productprice" value='<?php echo number_format($row['price'], 0, ',', '.') ?>'>vnđ</th>
+                      <th>
+                        <select name="materialid">
+                            <?php                  
+                                $result1 = mysqli_query($connect, $sql1);          
+                                while($row1 = mysqli_fetch_array($result1))
+                                {           
+                            ?>      
+                            <?php if ($row1['name'] == $row['materialname']){?>
+                                <option value="<?php echo $row1['id']?>" selected><?php echo $row1['name']?></option>
+                            <?php }else { ?>
+                                <option value="<?php echo $row1['id']?>"><?php echo $row1['name']?></option>
+                            <?php } ?>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                      </th>
+                      <th><img src="img/<?php echo $row['name'] ?>.jpg"><input type="submit" name="DeleteEarringProductImage" value="Xóa ảnh"><br>Thay ảnh mới
+                      <input type="file" name="image" value="Thay ảnh mới"><input type="submit" name="UpdateEarringProductImage" value="Cập nhật ảnh vừa thay"></th>
+                      <th><input type="submit" name="UpdateEarringProduct" value="Chỉnh sửa"><input type="submit" name="DeleteEarringProduct" value="Xóa"></th>
+                      </form>
+                    </tr>
+                    <?php
+            }
+        ?>
+</table>
+</div>
+
+<div id="necklace" class="tabcontent">
+<table>
+  <col width="5%">
+  <col width="55%">
+  <col width="15%">
+  <col width="10%">
+  <col width="5%">
+  <col width="5%">
+
+  <tr>
+    <th>Mã</th>
+    <th>Tên dây chuyền</th>
+    <th>Giá</th>
+    <th>Chất liệu</th>    
+    <th>Hình ảnh</th>    
+    <th>Thao tác</th> 
+  </tr>
+
+  <tr>
+  <form method="post" action="server.php" enctype="multipart/form-data">
+    <th>Mã</th>
+    <th><input type="text" placeholder="Nhập tên sản phẩm" id="productname" name="productname" required></th>
+    <th><input type="text" placeholder="Nhập giá sản phẩm" id="productprice" name="productprice" required></th>
+    <th>
+        <select name="materialid">
+        <?php
+            require "connect.php";
+            $sql = "SELECT * FROM necklacematerial";
+            $result = mysqli_query($connect, $sql);
+            while($row = mysqli_fetch_array($result))
+            {           
+                ?>                   
+                    <option value="<?php echo $row['id']?>"><?php echo $row['name']?></option>
+                    <?php
+            }
+        ?>
+        </select>
+    </th>
+    <th><input type="file" name="image" required></th>
+    <th><input type="submit" name="AddNecklaceProduct" value="Thêm sản phẩm"></th>
+  </form>
+  </tr>
+
+  <?php
+            require "connect.php";
+            $sql = "SELECT necklace.id, necklace.name, necklace.price, necklacematerial.name materialname FROM necklace INNER JOIN necklacematerial ON necklace.material_id = necklacematerial.id";
+            $sql1 = "SELECT id, `name` FROM necklacematerial";
+            $result = mysqli_query($connect, $sql);            
+            while($row = mysqli_fetch_array($result))
+            {           
+                ?>
+                    <tr><form action = "server.php" method = "post" enctype="multipart/form-data">
+                      <th><input type="text" name="productid" value=<?php echo $row['id']?> readonly></th>
+                      <th><input type="text" name="productname" value='<?php echo $row['name']?>'></th>
+                      <th><input type="text" name="productprice" value='<?php echo number_format($row['price'], 0, ',', '.') ?>'>vnđ</th>
+                      <th>
+                        <select name="materialid">
+                            <?php                  
+                                $result1 = mysqli_query($connect, $sql1);          
+                                while($row1 = mysqli_fetch_array($result1))
+                                {           
+                            ?>      
+                            <?php if ($row1['name'] == $row['materialname']){?>
+                                <option value="<?php echo $row1['id']?>" selected><?php echo $row1['name']?></option>
+                            <?php }else { ?>
+                                <option value="<?php echo $row1['id']?>"><?php echo $row1['name']?></option>
+                            <?php } ?>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                      </th>
+                      <th><img src="img/<?php echo $row['name'] ?>.jpg"><input type="submit" name="DeleteNecklaceProductImage" value="Xóa ảnh"><br>Thay ảnh mới
+                      <input type="file" name="image" value="Thay ảnh mới"><input type="submit" name="UpdateNecklaceProductImage" value="Cập nhật ảnh vừa thay"></th>
+                      <th><input type="submit" name="UpdateNecklaceProduct" value="Chỉnh sửa"><input type="submit" name="DeleteNecklaceProduct" value="Xóa"></th>
+                      </form>
+                    </tr>
+                    <?php
+            }
+        ?>
+</table>
 </div>
 
 <script>
